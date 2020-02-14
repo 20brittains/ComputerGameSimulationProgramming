@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/icon.png" type="Texture" id=3]
+
+[node name="World" type="Node"]
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 392, 377 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 431, 332 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 199, 162 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 942, 284 )
+texture = ExtResource( 3 )
