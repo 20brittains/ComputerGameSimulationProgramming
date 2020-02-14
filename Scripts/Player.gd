@@ -5,11 +5,9 @@ var max_speed = 340
 var Velocity = Vector2()
 var deceleration = 25
 
-#processes mmovement on every frame
+#processes movement on every frame
 func _process(delta):
 	Velocity.y += 45
-	
-	print(is_on_floor())
 	#checks if not moving left or right and velocity is less than deceleration amount, then decelerate
 	if !(Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and abs(Velocity.x) >= deceleration:
 		if Velocity.x > 0: #if moving right reduce speed towards right
