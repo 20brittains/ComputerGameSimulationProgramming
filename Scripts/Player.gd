@@ -1,12 +1,24 @@
 extends KinematicBody2D
 
-var speed = 50
-var max_speed = 340
+var default_speed = 50
+var default_max_speed = 340
 var Velocity = Vector2()
 var deceleration = 25
+var default_jump_power = 1000
+var speed_ratio = 1
+var jump_ratio = 1
 
 #processes movement on every frame
 func _process(delta):
+	speed_ratio = $CanvasLayer/VBoxContainer/HBoxContainer/HSlider.value
+	jump_ratio = $CanvasLayer/VBoxContainer/HBoxContainer2/HSlider.value
+	print($CanvasLayer/VBoxContainer/HBoxContainer/HSlider.value, " ", $CanvasLayer/VBoxContainer/HBoxContainer2/HSlider.value)
+	
+	var speed = default_speed * speed_ratio
+	var max_speed = default_max_speed * speed_ratio
+	var jump_power = default_jump_power * jump_ratio
+	
+
 	Velocity.y += 45
 	#checks if not moving left or right and velocity is less than deceleration amount, then decelerate
 	if !(Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and abs(Velocity.x) >= deceleration:
@@ -15,19 +27,19 @@ func _process(delta):
 		elif Velocity.x < 0: #if moving left reduce speed towards left
 			Velocity.x += deceleration
 	
-	if Input.is_action_pressed("ui_left") and Velocity.x > deceleration:
+	if Input.is_action_pressed("move_left") and Velocity.x > deceleration:
 		Velocity.x -= speed
-	if Input.is_action_pressed("ui_right") and Velocity.x < -deceleration:
+	if Input.is_action_pressed("move_right") and Velocity.x < -deceleration:
 		Velocity.x += speed
 		
 	#if abs(velocity.x) is less than decel amnt and greater than 0 then stop
-	if !(Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and abs(Velocity.x) < deceleration: 
+	if !(Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and abs(Velocity.x) < deceleration: 
 		Velocity.x = 0
 	
-	if Input.is_action_pressed("ui_right"): #accelerate the player to the right
+	if Input.is_action_pressed("move_right"): #accelerate the player to the right
 		$PlayerSprite.flip_h = false
 		Velocity.x += speed
-	if Input.is_action_pressed("ui_left"): #accelerate the player to the left
+	if Input.is_action_pressed("move_left"): #accelerate the player to the left
 		$PlayerSprite.flip_h = true
 		Velocity.x -= speed
 	
@@ -36,9 +48,9 @@ func _process(delta):
 	elif Velocity.x < -max_speed:
 		Velocity.x = -max_speed
 	
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		print("Jump")
-		Velocity.y = -1000
+		Velocity.y = -jump_power
 	
 	self.move_and_slide(Velocity, Vector2(0,-1))
 	
