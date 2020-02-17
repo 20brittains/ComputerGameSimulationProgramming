@@ -22,25 +22,25 @@ position = Vector2( 942, 284 )
 texture = ExtResource( 3 )
 
 [node name="Coin" parent="." instance=ExtResource( 4 )]
-position = Vector2( 597, 340 )
+position = Vector2( 949, 340 )
 
 [node name="Coin2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 637, 340 )
 
 [node name="Coin4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 677, 340 )
+position = Vector2( 1029, 340 )
 
 [node name="Coin3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 717, 340 )
 
 [node name="Coin8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 757, 340 )
+position = Vector2( 1109, 340 )
 
 [node name="Coin7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 797, 340 )
 
 [node name="Coin6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 837, 340 )
+position = Vector2( 1189, 340 )
 
 [node name="Coin5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 877, 340 )

@@ -6,20 +6,18 @@ var Velocity = Vector2()
 var deceleration = 25
 var default_jump_power = 1000
 var speed_ratio = 1
-var jump_ratio = 1
+var jump_ratio = 0
+
+var Upgrade_Screen_Scene = load("res://Scenes/UpgradeScreen.tscn")
 
 #processes movement on every frame
 func _process(delta):
-	speed_ratio = $CanvasLayer/VBoxContainer/HBoxContainer/HSlider.value
-	jump_ratio = $CanvasLayer/VBoxContainer/HBoxContainer2/HSlider.value
-	print($CanvasLayer/VBoxContainer/HBoxContainer/HSlider.value, " ", $CanvasLayer/VBoxContainer/HBoxContainer2/HSlider.value)
-	
 	var speed = default_speed * speed_ratio
 	var max_speed = default_max_speed * speed_ratio
 	var jump_power = default_jump_power * jump_ratio
 	
-
 	Velocity.y += 45
+	
 	#checks if not moving left or right and velocity is less than deceleration amount, then decelerate
 	if !(Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and abs(Velocity.x) >= deceleration:
 		if Velocity.x > 0: #if moving right reduce speed towards right
@@ -53,4 +51,11 @@ func _process(delta):
 		Velocity.y = -jump_power
 	
 	self.move_and_slide(Velocity, Vector2(0,-1))
+	
+	if Input.is_action_just_pressed("upgrade_menu") and !has_node("CanvasLayer/UpgradeScreen"):
+		var up = Upgrade_Screen_Scene.instance()
+		up.name = "UpgradeScreen"
+		get_node("CanvasLayer").add_child(up)
+	elif Input.is_action_just_pressed("upgrade_menu") and has_node("CanvasLayer/UpgradeScreen"):
+		get_node("CanvasLayer/UpgradeScreen").queue_free()
 	
