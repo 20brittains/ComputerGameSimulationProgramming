@@ -5,18 +5,22 @@ var default_max_speed = 340
 var Velocity = Vector2()
 var deceleration = 25
 var default_jump_power = 1000
-var speed_ratio = 1
+var speed_ratio = .1
 var jump_ratio = 0
+var coins = 0
+var coin_multiplier = 1
 
 var Upgrade_Screen_Scene = load("res://Scenes/UpgradeScreen.tscn")
 
 #processes movement on every frame
+# warning-ignore:unused_argument
 func _process(delta):
 	var speed = default_speed * speed_ratio
 	var max_speed = default_max_speed * speed_ratio
 	var jump_power = default_jump_power * jump_ratio
 	
-	Velocity.y += 45
+	if !is_on_floor():
+		Velocity.y += 45
 	
 	#checks if not moving left or right and velocity is less than deceleration amount, then decelerate
 	if !(Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and abs(Velocity.x) >= deceleration:
@@ -50,6 +54,7 @@ func _process(delta):
 		print("Jump")
 		Velocity.y = -jump_power
 	
+# warning-ignore:return_value_discarded
 	self.move_and_slide(Velocity, Vector2(0,-1))
 	
 	if Input.is_action_just_pressed("upgrade_menu") and !has_node("CanvasLayer/UpgradeScreen"):

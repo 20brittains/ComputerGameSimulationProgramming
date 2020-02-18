@@ -4,6 +4,8 @@ var ignore
 
 func _on_Coin_body_entered(body):
 	if body.name == "Player" and ignore != true:
+		body.coins += 1 * body.coin_multiplier
+		
 		$GoldParticle.emitting = true
 		$DespawnTimer.start()
 		$CoinSprite.hide()

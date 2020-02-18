@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Jump_Upgrade.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/UpgradeScreenCloseButton.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Coin.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Speed_Upgrade.png" type="Texture" id=4]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
@@ -45,15 +47,15 @@ __meta__ = {
 margin_right = 227.0
 margin_bottom = 520.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+[node name="JumpUpgrade" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer"]
 margin_right = 227.0
 margin_bottom = 64.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/JumpUpgrade"]
 margin_right = 64.0
 margin_bottom = 64.0
 
-[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer/JumpUpgrade/VBoxContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
@@ -62,19 +64,19 @@ size_flags_vertical = 3
 texture = ExtResource( 1 )
 stretch_mode = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/JumpUpgrade"]
 margin_left = 68.0
 margin_right = 73.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 5, 0 )
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/JumpUpgrade"]
 margin_left = 77.0
 margin_right = 227.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 32 )
 
-[node name="JumpUpgrade" type="Label" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="JumpUpgrade" type="Label" parent="Panel/HBoxContainer/VBoxContainer/JumpUpgrade/VBoxContainer2"]
 margin_right = 150.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 150, 0 )
@@ -83,7 +85,99 @@ size_flags_vertical = 3
 text = "Jump Upgrade"
 valign = 1
 
-[node name="JumpUpgradeButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="JumpUpgradeButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/JumpUpgrade/VBoxContainer2"]
+margin_top = 44.0
+margin_right = 150.0
+margin_bottom = 64.0
+text = "Upgrade"
+
+[node name="SpeedUpgrade" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 227.0
+margin_bottom = 132.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/SpeedUpgrade"]
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer/SpeedUpgrade/VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/SpeedUpgrade"]
+margin_left = 68.0
+margin_right = 73.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 5, 0 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/SpeedUpgrade"]
+margin_left = 77.0
+margin_right = 227.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="SpeedUpgrade" type="Label" parent="Panel/HBoxContainer/VBoxContainer/SpeedUpgrade/VBoxContainer2"]
+margin_right = 150.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Speed Upgrade"
+valign = 1
+
+[node name="SpeedUpgradeButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/SpeedUpgrade/VBoxContainer2"]
+margin_top = 44.0
+margin_right = 150.0
+margin_bottom = 64.0
+text = "Upgrade"
+
+[node name="CoinUpgrade" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+margin_top = 136.0
+margin_right = 227.0
+margin_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/CoinUpgrade"]
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer/CoinUpgrade/VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/CoinUpgrade"]
+margin_left = 68.0
+margin_right = 73.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 5, 0 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/CoinUpgrade"]
+margin_left = 77.0
+margin_right = 227.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="SpeedUpgrade" type="Label" parent="Panel/HBoxContainer/VBoxContainer/CoinUpgrade/VBoxContainer2"]
+margin_right = 150.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Coin Upgrade"
+valign = 1
+
+[node name="CoinUpgradeButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/CoinUpgrade/VBoxContainer2"]
 margin_top = 44.0
 margin_right = 150.0
 margin_bottom = 64.0
@@ -97,4 +191,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="button_up" from="Panel/CloseButton" to="." method="_on_CloseButton_button_up"]
-[connection signal="button_up" from="Panel/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/JumpUpgradeButton" to="." method="_on_JumpUpgradeButton_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/VBoxContainer/JumpUpgrade/VBoxContainer2/JumpUpgradeButton" to="." method="_on_JumpUpgradeButton_button_up"]
