@@ -1,4 +1,4 @@
-extends MarginContainer
+extends CanvasLayer
 
 onready var player_node = get_parent().get_parent()
 

@@ -16,7 +16,7 @@ size = 48
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 32
+size = 64
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -58,38 +58,38 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -148.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = 68.0
+margin_left = -220.0
+margin_top = 36.0
+margin_right = -59.0
+margin_bottom = 108.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
-margin_right = 48.0
-margin_bottom = 48.0
+margin_right = 64.0
+margin_bottom = 72.0
 rect_min_size = Vector2( 48, 48 )
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/HBoxContainer2"]
-margin_right = 48.0
-margin_bottom = 48.0
+margin_right = 64.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
-margin_left = 52.0
-margin_right = 97.0
-margin_bottom = 48.0
+margin_left = 68.0
+margin_right = 161.0
+margin_bottom = 72.0
 alignment = 2
 
 [node name="Coin Counter" type="Label" parent="CanvasLayer/HBoxContainer/HBoxContainer"]
-margin_top = 6.0
-margin_right = 45.0
-margin_bottom = 42.0
+margin_right = 93.0
+margin_bottom = 72.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 3 )
 text = "999"

@@ -11,11 +11,11 @@ font_data = ExtResource( 1 )
 size = 48
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 85
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 85
 font_data = ExtResource( 1 )
 
@@ -84,6 +84,9 @@ margin_bottom = 681.0
 margin_right = 125.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 125, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Play Button" type="VBoxContainer" parent="MainBox/Buttons"]
 margin_left = 129.0
@@ -97,7 +100,7 @@ margin_right = 724.0
 margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Play"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MainBox/Buttons"]
@@ -116,7 +119,7 @@ size_flags_horizontal = 3
 margin_right = 724.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Quit"
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="MainBox/Buttons"]
