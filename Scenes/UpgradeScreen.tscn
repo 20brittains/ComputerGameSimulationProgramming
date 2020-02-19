@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Jump_Upgrade.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/UpgradeScreenCloseButton.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Coin.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Speed_Upgrade.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/TimeUpgrade.png" type="Texture" id=5]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
@@ -183,6 +184,52 @@ margin_right = 150.0
 margin_bottom = 64.0
 text = "Upgrade"
 
+[node name="TimeUpgrade" type="HBoxContainer" parent="Panel/HBoxContainer/VBoxContainer"]
+margin_top = 204.0
+margin_right = 227.0
+margin_bottom = 268.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/TimeUpgrade"]
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer/TimeUpgrade/VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/TimeUpgrade"]
+margin_left = 68.0
+margin_right = 73.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 5, 0 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer/TimeUpgrade"]
+margin_left = 77.0
+margin_right = 227.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="TimerUpgrade" type="Label" parent="Panel/HBoxContainer/VBoxContainer/TimeUpgrade/VBoxContainer2"]
+margin_right = 150.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Coin Upgrade"
+valign = 1
+
+[node name="TimerUpgradeButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/TimeUpgrade/VBoxContainer2"]
+margin_top = 44.0
+margin_right = 150.0
+margin_bottom = 64.0
+text = "Upgrade"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer"]
 margin_left = 231.0
 margin_right = 231.0
@@ -192,3 +239,6 @@ __meta__ = {
 }
 [connection signal="button_up" from="Panel/CloseButton" to="." method="_on_CloseButton_button_up"]
 [connection signal="button_up" from="Panel/HBoxContainer/VBoxContainer/JumpUpgrade/VBoxContainer2/JumpUpgradeButton" to="." method="_on_JumpUpgradeButton_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/VBoxContainer/SpeedUpgrade/VBoxContainer2/SpeedUpgradeButton" to="." method="_on_SpeedUpgradeButton_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/VBoxContainer/CoinUpgrade/VBoxContainer2/CoinUpgradeButton" to="." method="_on_CoinUpgradeButton_button_up"]
+[connection signal="button_up" from="Panel/HBoxContainer/VBoxContainer/TimeUpgrade/VBoxContainer2/TimerUpgradeButton" to="." method="_on_TimerUpgradeButton_button_up"]

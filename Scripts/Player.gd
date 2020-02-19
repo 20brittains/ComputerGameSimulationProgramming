@@ -9,6 +9,7 @@ var speed_ratio = .1
 var jump_ratio = 0
 var coins = 0
 var coin_multiplier = 1
+var timer_upgrade_ratio = 1
 
 var Upgrade_Screen_Scene = load("res://Scenes/UpgradeScreen.tscn")
 
@@ -64,3 +65,6 @@ func _process(delta):
 	elif Input.is_action_just_pressed("upgrade_menu") and has_node("CanvasLayer/UpgradeScreen"):
 		get_node("CanvasLayer/UpgradeScreen").queue_free()
 	
+	if Input.is_action_just_pressed("ui_home"):
+		$CanvasLayer/Timer/Timer.wait_time *= timer_upgrade_ratio
+		$CanvasLayer/Timer/Timer.start()
