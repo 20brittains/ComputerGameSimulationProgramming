@@ -34,7 +34,7 @@ func _process(delta):
 		Velocity.x -= speed
 	if Input.is_action_pressed("move_right") and Velocity.x < -deceleration:
 		Velocity.x += speed
-		
+	
 	#if abs(velocity.x) is less than decel amnt and greater than 0 then stop
 	if !(Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and abs(Velocity.x) < deceleration: 
 		Velocity.x = 0
