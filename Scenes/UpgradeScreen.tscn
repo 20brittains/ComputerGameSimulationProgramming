@@ -20,28 +20,20 @@ font_data = ExtResource( 6 )
 size = 30
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 75
-font_data = ExtResource( 6 )
-
 [sub_resource type="DynamicFont" id=4]
-size = 60
+size = 75
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 30
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=12]
-size = 75
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=6]
 size = 60
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 75
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
@@ -53,6 +45,14 @@ size = 30
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=10]
+size = 60
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=12]
 size = 80
 font_data = ExtResource( 6 )
 
@@ -166,7 +166,7 @@ margin_bottom = 128.0
 rect_min_size = Vector2( 225, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 4 )
 text = "$999"
 align = 1
 valign = 1
@@ -219,7 +219,7 @@ margin_bottom = 82.0
 rect_min_size = Vector2( 450, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Speed Upgrade"
 align = 1
 valign = 1
@@ -229,7 +229,7 @@ margin_top = 86.0
 margin_right = 450.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 450, 42 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Upgrade"
 
 [node name="Price" type="HBoxContainer" parent="UpgradeScreen/Panel/UpgradeContainer/SpeedUpgrade"]
@@ -245,7 +245,7 @@ margin_bottom = 128.0
 margin_right = 225.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 225, 0 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 7 )
 text = "$999"
 align = 1
 valign = 1
@@ -298,7 +298,7 @@ margin_bottom = 82.0
 rect_min_size = Vector2( 450, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "Coin Upgrade"
 align = 1
 valign = 1
@@ -308,7 +308,7 @@ margin_top = 86.0
 margin_right = 450.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 450, 42 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "Upgrade"
 
 [node name="Price" type="HBoxContainer" parent="UpgradeScreen/Panel/UpgradeContainer/CoinUpgrade"]
@@ -324,7 +324,7 @@ margin_bottom = 128.0
 margin_right = 225.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 225, 0 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 7 )
 text = "$999"
 align = 1
 valign = 1
@@ -377,7 +377,7 @@ margin_bottom = 80.0
 rect_min_size = Vector2( 450, 80 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "Timer Upgrade"
 align = 1
 valign = 1
@@ -387,7 +387,7 @@ margin_top = 84.0
 margin_right = 450.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 450, 48 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 11 )
 text = "Upgrade"
 
 [node name="Price" type="HBoxContainer" parent="UpgradeScreen/Panel/UpgradeContainer/TimeUpgrade"]
@@ -403,7 +403,7 @@ margin_bottom = 132.0
 margin_right = 225.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 225, 0 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 7 )
 text = "$999"
 align = 1
 valign = 1
@@ -425,7 +425,7 @@ margin_right = 709.0
 margin_bottom = 321.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
 text = "Play"
 
 [node name="CoinCounter" type="HBoxContainer" parent="UpgradeScreen/Panel"]

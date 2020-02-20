@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/car.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Car.gd" type="Script" id=2]
+
+[node name="Car" type="Area2D"]
+position = Vector2( 5.94807, 82.358 )
+script = ExtResource( 2 )
+
+[node name="CarSprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 1 )
+flip_h = true
+region_rect = Rect2( 0.01, 48, 32, 16 )
+
+[node name="CarCollision" type="CollisionPolygon2D" parent="."]
+scale = Vector2( -3.5, 3.5 )
+polygon = PoolVector2Array( -3.00998, -5.94519, -7.94919, -2.00559, -13.006, -1.94679, -15.0052, -0.00638866, -15.064, 2.99241, -13.1824, 2.99241, -10.066, 5.99121, -6.94958, 3.93321, 7.04483, 3.99201, 9.98483, 6.05002, 14.9828, 1.11081, 14.924, -4.00479, 7.75043, -6.00399 )
+[connection signal="body_entered" from="." to="." method="_on_Car_body_entered"]

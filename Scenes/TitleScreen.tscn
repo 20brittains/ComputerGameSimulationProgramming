@@ -4,11 +4,15 @@
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 120
+size = 300
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -37,28 +41,28 @@ margin_bottom = 1000.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MainBox"]
 margin_right = 1840.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 0, 175 )
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
 
 [node name="Title" type="HBoxContainer" parent="MainBox"]
-margin_top = 179.0
+margin_top = 29.0
 margin_right = 1840.0
-margin_bottom = 314.0
+margin_bottom = 365.0
 
 [node name="Label" type="Label" parent="MainBox/Title"]
 margin_right = 1840.0
-margin_bottom = 135.0
+margin_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
-text = "Game Title"
+text = "BAA Quest"
 align = 1
 valign = 1
 
 [node name="Credit" type="HBoxContainer" parent="MainBox"]
-margin_top = 318.0
+margin_top = 369.0
 margin_right = 1840.0
-margin_bottom = 373.0
+margin_bottom = 424.0
 
 [node name="Label" type="Label" parent="MainBox/Credit"]
 margin_right = 1840.0
@@ -70,15 +74,15 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainBox"]
-margin_top = 377.0
+margin_top = 428.0
 margin_right = 1840.0
-margin_bottom = 527.0
+margin_bottom = 578.0
 rect_min_size = Vector2( 0, 150 )
 
 [node name="Buttons" type="HBoxContainer" parent="MainBox"]
-margin_top = 531.0
+margin_top = 582.0
 margin_right = 1840.0
-margin_bottom = 681.0
+margin_bottom = 732.0
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="MainBox/Buttons"]
 margin_right = 125.0

@@ -20,12 +20,13 @@ var Upgrade_Screen_Scene = load("res://Scenes/UpgradeScreen.tscn")
 #processes movement on every frame
 # warning-ignore:unused_argument
 func _process(delta):
+	coins = 912401298091284029
 	var speed = default_speed * speed_ratio
 	var max_speed = default_max_speed * speed_ratio
 	var jump_power = default_jump_power * jump_ratio
 	
-	print(coins)
-	
+	if is_on_ceiling():
+		Velocity.y = 0
 	if !is_on_floor():
 		Velocity.y += 45
 	
