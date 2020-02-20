@@ -1,42 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/icon.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=4]
+[sub_resource type="TileSet" id=1]
 
 [node name="World1" type="Node"]
 
-[node name="Floor" parent="." instance=ExtResource( 2 )]
-position = Vector2( -152.211, 77 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -345.211, -138 )
-texture = ExtResource( 3 )
-
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 397.789, -16 )
-texture = ExtResource( 3 )
-
-[node name="Coin" parent="." instance=ExtResource( 4 )]
-position = Vector2( 404.789, 40 )
-
-[node name="Coin2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 92.7894, 40 )
-
-[node name="Coin4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 484.789, 40 )
-
-[node name="Coin3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 172.789, 40 )
-
-[node name="Coin8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 564.789, 40 )
-
-[node name="Coin7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 252.789, 40 )
-
-[node name="Coin6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 644.789, 40 )
-
-[node name="Coin5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 332.789, 40 )
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+format = 1

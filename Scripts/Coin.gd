@@ -14,3 +14,6 @@ func _on_Coin_body_entered(body):
 
 func _on_Timer_timeout():
 	queue_free()
+
+func _on_MonitorTimer_timeout():
+	self.monitoring = true
