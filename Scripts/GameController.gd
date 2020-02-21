@@ -7,8 +7,6 @@ var player_scene = load("res://Scenes/Player.tscn")
 
 var game_initialized = false
 
-func _ready():
-	$GameMusic.play()
 
 func initialize_game():
 	get_node("TitleScreen").queue_free()
@@ -45,7 +43,3 @@ func player_death():
 	var up = upgrade_scene.instance()
 	add_child(up)
 	pass
-
-
-func _on_GameMusic_finished():
-	$GameMusic.play()

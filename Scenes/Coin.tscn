@@ -54,6 +54,7 @@ autostart = true
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+volume_db = -17.082
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="MonitorTimer" to="." method="_on_MonitorTimer_timeout"]

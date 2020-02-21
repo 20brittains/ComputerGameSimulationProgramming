@@ -6,10 +6,11 @@ func _process(delta):
 	position.x += multi*300*delta
 
 func _on_Car_body_entered(body):
-	print(body.name)
-	multi *= -1
-	get_node("CarSprite").flip_h = !get_node("CarSprite").flip_h
-	get_node("CarCollision").scale.x *= -1
+	if body is TileMap:
+		multi *= -1
+		get_node("CarSprite").flip_h = !get_node("CarSprite").flip_h
+	if body is KinematicBody2D:
+		get_parent().get_parent().player_death()
 	pass # Replace with function body.
 
 func _ready():
