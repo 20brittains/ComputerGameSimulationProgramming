@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet.png-8d1e45e7c563b1fc59afddcd8efeb8ef.stex"
+path="res://.import/BAA.png-918dfce9c833d66bc9b4960e78cf1d6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/spritesheet.png"
-dest_files=[ "res://.import/spritesheet.png-8d1e45e7c563b1fc59afddcd8efeb8ef.stex" ]
+source_file="res://Sprites/BAA.png"
+dest_files=[ "res://.import/BAA.png-918dfce9c833d66bc9b4960e78cf1d6f.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

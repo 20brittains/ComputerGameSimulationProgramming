@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/car.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Car.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/car_wheels.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 52.5, 21 )
+extents = Vector2( 52.5, 18 )
 
 [node name="Car" type="Area2D"]
 position = Vector2( -0.05193, 0.358002 )
+collision_layer = 5
+collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="CarSprite" type="Sprite" parent="."]
@@ -18,5 +21,10 @@ flip_h = true
 region_rect = Rect2( 0.01, 48, 32, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 5.96046e-08, -4 )
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 3 )
 [connection signal="body_entered" from="." to="." method="_on_Car_body_entered"]

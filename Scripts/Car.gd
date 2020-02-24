@@ -10,7 +10,7 @@ func _on_Car_body_entered(body):
 		multi *= -1
 		get_node("CarSprite").flip_h = !get_node("CarSprite").flip_h
 	if body is KinematicBody2D:
-		get_parent().get_parent().player_death()
+		body.damage()
 	pass # Replace with function body.
 
 func _ready():

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet.png-8d1e45e7c563b1fc59afddcd8efeb8ef.stex"
+path="res://.import/20-200939_13-apr-run-animation-pixel-art.png-d6633433adf4ead23c97461b73a2b184.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/spritesheet.png"
-dest_files=[ "res://.import/spritesheet.png-8d1e45e7c563b1fc59afddcd8efeb8ef.stex" ]
+source_file="res://Sprites/20-200939_13-apr-run-animation-pixel-art.png"
+dest_files=[ "res://.import/20-200939_13-apr-run-animation-pixel-art.png-d6633433adf4ead23c97461b73a2b184.stex" ]
 
 [params]
 
@@ -20,8 +20,8 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
-flags/mipmaps=true
+flags/filter=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

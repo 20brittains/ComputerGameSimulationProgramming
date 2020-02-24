@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Sprites/icon.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/character.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/munro.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=4]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scripts/CoinCounter.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Timer.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/cityscape.png" type="Texture" id=8]
+[ext_resource path="res://Sounds/Jump.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sprites/Heart.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 24 )
@@ -24,15 +26,63 @@ font_data = ExtResource( 3 )
 size = 69
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 62
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 24, 4 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Run"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="PlayerSprite" type="Sprite" parent="."]
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 0, -4 )
+scale = Vector2( 0.35, 0.35 )
+z_index = 999
 texture = ExtResource( 1 )
+vframes = 3
+hframes = 3
+frame = 6
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true
@@ -124,12 +174,107 @@ wait_time = 5.0
 one_shot = true
 script = ExtResource( 7 )
 
+[node name="Hearts" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 200.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart1" type="HBoxContainer" parent="CanvasLayer/Hearts"]
+visible = false
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Hearts/Heart1"]
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Heart2" type="HBoxContainer" parent="CanvasLayer/Hearts"]
+visible = false
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Hearts/Heart2"]
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Heart3" type="HBoxContainer" parent="CanvasLayer/Hearts"]
+visible = false
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Hearts/Heart3"]
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Heart4" type="HBoxContainer" parent="CanvasLayer/Hearts"]
+visible = false
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Hearts/Heart4"]
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Heart5" type="HBoxContainer" parent="CanvasLayer/Hearts"]
+visible = false
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Hearts/Heart5"]
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Respawn Button" type="Button" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -175.0
+margin_right = 150.0
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 8 )
+text = "Open Store"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 scale = Vector2( 5, 5 )
 motion_scale = Vector2( 0.1, 0 )
-motion_mirroring = Vector2( 384, 0 )
+motion_mirroring = Vector2( 960, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
@@ -143,10 +288,10 @@ region_rect = Rect2( 0, 26, 128, 28 )
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 scale = Vector2( 5, 5 )
 motion_scale = Vector2( 0.2, 0 )
-motion_mirroring = Vector2( 768, 0 )
+motion_mirroring = Vector2( 960, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-modulate = Color( 0.968627, 0.968627, 0.968627, 1 )
+modulate = Color( 0.898039, 0.898039, 0.898039, 1 )
 position = Vector2( 0, -65.6 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
@@ -154,5 +299,36 @@ centered = false
 flip_h = true
 region_enabled = true
 region_rect = Rect2( 0, 26, 128, 28 )
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -13.938
+
+[node name="PlatDetector" type="Area2D" parent="."]
+position = Vector2( 0, 25.5 )
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatDetector"]
+position = Vector2( 0, -2 )
+shape = SubResource( 5 )
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="DamageBlinkTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PlayerSprite")
+anims/Idle = SubResource( 6 )
+anims/Run = SubResource( 7 )
 [connection signal="button_up" from="CanvasLayer/QuitButton" to="CanvasLayer/QuitButton" method="_on_QuitButton_button_up"]
 [connection signal="timeout" from="CanvasLayer/Timer/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="button_up" from="CanvasLayer/Respawn Button" to="." method="_on_Respawn_Button_button_up"]
+[connection signal="finished" from="JumpSound" to="." method="_on_JumpSound_finished"]
+[connection signal="body_entered" from="PlatDetector" to="." method="_on_PlatDetector_body_entered"]
+[connection signal="body_exited" from="PlatDetector" to="." method="_on_PlatDetector_body_exited"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+[connection signal="timeout" from="DamageBlinkTimer" to="." method="_on_DamageBlinkTimer_timeout"]

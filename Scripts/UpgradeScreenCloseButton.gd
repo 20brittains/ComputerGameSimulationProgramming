@@ -29,15 +29,17 @@ func _on_TimerUpgradeButton_button_up():
 
 func _on_PlayButton_button_up():
 	player_node.global_position = Vector2(0,0)
+	player_node.Velocity = Vector2(0,0)
 	get_tree().paused = false
-	
+	get_parent().get_node("Player/CanvasLayer/Respawn Button").visible = true
 	player_node.get_node("CanvasLayer/Timer").visible = true
 	player_node.get_node("CanvasLayer/Timer/Timer").wait_time = int(5 * player_node.timer_upgrade_ratio)
 	player_node.get_node("CanvasLayer/Timer/Timer").start(player_node.get_node("CanvasLayer/Timer/Timer").wait_time)
 	
 	player_node.get_node("CanvasLayer/HBoxContainer/HBoxContainer/Coin Counter").visible = true
 	player_node.get_node("CanvasLayer/HBoxContainer/HBoxContainer2/TextureRect").visible = true
-	
+	player_node.hp = player_node.hp_upgrade_number
+	player_node.set_health_vis()
 
 	self.queue_free()
 
