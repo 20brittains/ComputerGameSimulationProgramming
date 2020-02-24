@@ -42,4 +42,7 @@ func player_death():
 	
 	var up = upgrade_scene.instance()
 	add_child(up)
+	get_node("Player/CanvasLayer/Respawn Button").visible = false
+	for i in get_node("Player").heart_array.size():
+		get_node("Player").get_node(get_node("Player").heart_array[i]).hide()
 	pass

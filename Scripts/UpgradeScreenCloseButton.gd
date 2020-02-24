@@ -40,10 +40,10 @@ func _on_PlayButton_button_up():
 	player_node.get_node("CanvasLayer/HBoxContainer/HBoxContainer2/TextureRect").visible = true
 	player_node.hp = player_node.hp_upgrade_number
 	player_node.set_health_vis()
-
+	print("gets here")
 	self.queue_free()
 
-func _process(delta):
+func _process(_delta):
 	if player_node.jump_upgrade_number < 20 and player_node.coins < 3 + int(pow(player_node.jump_upgrade_number+1, 3)):
 		$UpgradeScreen/Panel/UpgradeContainer/JumpUpgrade/VBoxContainer2/JumpUpgradeButton.disabled = true
 	else: 

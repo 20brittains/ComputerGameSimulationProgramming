@@ -131,5 +131,60 @@ margin_left = 1714.0
 margin_right = 1839.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 125, 0 )
+
+[node name="Buttons3" type="HBoxContainer" parent="MainBox"]
+margin_top = 736.0
+margin_right = 1840.0
+margin_bottom = 766.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Buttons2" type="HBoxContainer" parent="MainBox"]
+margin_top = 770.0
+margin_right = 1840.0
+margin_bottom = 920.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MainBox/Buttons2"]
+margin_right = 125.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 125, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play Button" type="VBoxContainer" parent="MainBox/Buttons2"]
+margin_left = 129.0
+margin_right = 1711.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+size_flags_horizontal = 3
+
+[node name="HelpButton" type="Button" parent="MainBox/Buttons2/Play Button"]
+margin_right = 1582.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "Help and Controls"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="MainBox/Buttons2"]
+margin_left = 1715.0
+margin_right = 1840.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 125, 0 )
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_right = 1840.0
+margin_bottom = 1000.0
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 1024.0
+margin_bottom = 964.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="MainBox/Buttons/Play Button/Play Button" to="." method="_on_Play_Button_button_up"]
 [connection signal="button_up" from="MainBox/Buttons/Quit Button/Quit Button" to="." method="_on_Quit_Button_button_up"]
+[connection signal="button_up" from="MainBox/Buttons2/Play Button/HelpButton" to="." method="_on_HelpButton_button_up"]

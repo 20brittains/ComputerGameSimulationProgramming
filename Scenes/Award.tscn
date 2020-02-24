@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/munro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/yellowpix.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Victory.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/Award.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/BAA.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -32,6 +33,9 @@ font_data = ExtResource( 1 )
 gravity_vec = Vector2( 0, 0 )
 gravity = 0.0
 monitoring = false
+collision_layer = 5
+collision_mask = 5
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -49,7 +53,7 @@ process_material = SubResource( 2 )
 texture = ExtResource( 2 )
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 1.75
+wait_time = 2.2
 one_shot = true
 
 [node name="MonitorTimer" type="Timer" parent="."]
@@ -59,7 +63,7 @@ autostart = true
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = -17.082
+volume_db = 5.361
 
 [node name="Award Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -77,3 +81,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="body_entered" from="." to="." method="_on_BAAaward_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]
+[connection signal="timeout" from="MonitorTimer" to="." method="_on_MonitorTimer_timeout"]

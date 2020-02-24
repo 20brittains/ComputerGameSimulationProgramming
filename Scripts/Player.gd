@@ -20,11 +20,28 @@ var hp = 3
 var heart_array = ["CanvasLayer/Hearts/Heart1","CanvasLayer/Hearts/Heart2","CanvasLayer/Hearts/Heart3","CanvasLayer/Hearts/Heart4","CanvasLayer/Hearts/Heart5"]
 var is_jumping = false
 var Upgrade_Screen_Scene = load("res://Scenes/UpgradeScreen.tscn")
+var awards = 0
+var on_floor
 
 #processes movement on every frame
 # warning-ignore:unused_argument
 func _process(delta):
-	coins = 912401298091284029
+	print($RayCast2D.get_collider(),$RayCast2D2.get_collider(),$RayCast2D3.get_collider())
+	if $RayCast2D.get_collider() is KinematicBody2D or $RayCast2D.get_collider() is TileMap:
+		on_floor = true
+		Velocity.y = 0
+	elif $RayCast2D2.get_collider() is KinematicBody2D or $RayCast2D2.get_collider() is TileMap:
+		on_floor = true
+		Velocity.y = 0
+	elif $RayCast2D3.get_collider() is KinematicBody2D or $RayCast2D3.get_collider() is TileMap:
+		on_floor = true
+		Velocity.y = 0
+	else:
+		on_floor = false
+	print(on_floor)
+	
+	if Input.is_action_just_pressed("ui_end"):
+		coins += 9999999
 	var speed = default_speed * speed_ratio
 	var max_speed = default_max_speed * speed_ratio
 	var jump_power = default_jump_power * jump_ratio
@@ -32,10 +49,10 @@ func _process(delta):
 	if is_on_ceiling():
 		Velocity.y = 0
 		
-	if !is_on_floor() and is_jumping:
+	if !is_on_floor():
 		Velocity.y += 45
 	else:
-		Velocity.y = 10
+		Velocity.y = 45
 	
 	if Input.is_action_pressed("down"):
 		self.set_collision_layer_bit(1, false)
@@ -67,15 +84,19 @@ func _process(delta):
 		$PlayerSprite.flip_h = true
 		Velocity.x -= speed
 	
+	if Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
+		Velocity.x = 0
+	
 	if Velocity.x == 0:
 		$AnimationPlayer.play("Idle")
+	
 	
 	if Velocity.x > max_speed: #if exceeding the max speed of the player reduce to max speed
 		Velocity.x = max_speed
 	elif Velocity.x < -max_speed:
 		Velocity.x = -max_speed
 	
-	if Input.is_action_just_pressed("jump") and jump_upgrade_number != 0:
+	if Input.is_action_just_pressed("jump") and jump_upgrade_number != 0 and is_on_floor():
 		$JumpSound.play()
 		Velocity.y = -jump_power
 	
@@ -91,14 +112,16 @@ func set_health_vis():
 func damage():
 	print("ow")
 	if hp > 1 and $InvincibilityTimer.is_stopped():
+		$Hurt.play()
 		hp -= 1
+		get_node(heart_array[hp-1]).hide()
 		$InvincibilityTimer.start()
 		$DamageBlinkTimer.start()
-	elif hp == 0:
+	elif hp == 1:
 		get_parent().call_deferred("player_death")
 
 func _on_Timer_timeout():
-	get_parent().player_death()
+	get_parent().call_deferred("player_death")
 
 func _on_PlatDetector_body_exited(body):
 	if body is KinematicBody2D and body.name != "Player":
@@ -123,5 +146,4 @@ func _on_InvincibilityTimer_timeout():
 
 
 func _on_Respawn_Button_button_up():
-	for i in hp_upgrade_number:
-		get_parent().call_deferred("player_death")
+	get_parent().call_deferred("player_death")
