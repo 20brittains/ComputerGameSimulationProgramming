@@ -15,8 +15,8 @@ var coin_multiplier = 1
 var timer_upgrade_ratio = 1
 var timer_upgrade_number = 0
 var snap = false
-var hp_upgrade_number = 3
-var hp = 3
+var hp_upgrade_number = 1
+var hp = 1
 var heart_array = ["CanvasLayer/Hearts/Heart1","CanvasLayer/Hearts/Heart2","CanvasLayer/Hearts/Heart3","CanvasLayer/Hearts/Heart4","CanvasLayer/Hearts/Heart5"]
 var is_jumping = false
 var Upgrade_Screen_Scene = load("res://Scenes/UpgradeScreen.tscn")
@@ -26,22 +26,7 @@ var on_floor
 #processes movement on every frame
 # warning-ignore:unused_argument
 func _process(delta):
-	print($RayCast2D.get_collider(),$RayCast2D2.get_collider(),$RayCast2D3.get_collider())
-	if $RayCast2D.get_collider() is KinematicBody2D or $RayCast2D.get_collider() is TileMap:
-		on_floor = true
-		Velocity.y = 0
-	elif $RayCast2D2.get_collider() is KinematicBody2D or $RayCast2D2.get_collider() is TileMap:
-		on_floor = true
-		Velocity.y = 0
-	elif $RayCast2D3.get_collider() is KinematicBody2D or $RayCast2D3.get_collider() is TileMap:
-		on_floor = true
-		Velocity.y = 0
-	else:
-		on_floor = false
-	print(on_floor)
-	
-	if Input.is_action_just_pressed("ui_end"):
-		coins += 9999999
+		
 	var speed = default_speed * speed_ratio
 	var max_speed = default_max_speed * speed_ratio
 	var jump_power = default_jump_power * jump_ratio
@@ -110,7 +95,6 @@ func set_health_vis():
 		get_node(heart_array[i]).visible = true
 
 func damage():
-	print("ow")
 	if hp > 1 and $InvincibilityTimer.is_stopped():
 		$Hurt.play()
 		hp -= 1
@@ -124,17 +108,12 @@ func _on_Timer_timeout():
 	get_parent().call_deferred("player_death")
 
 func _on_PlatDetector_body_exited(body):
-	if body is KinematicBody2D and body.name != "Player":
-		snap = false
-	if body is TileMap:
-		is_jumping = true
+	if body is KinematicBody2D and body.name != "Player" or body is TileMap:
+		on_floor = false
 
 func _on_PlatDetector_body_entered(body):
-	print(body.name)
-	if body is KinematicBody2D and body.name != "Player":
-		snap = true
-	if body is TileMap:
-		is_jumping = false
+	if body is KinematicBody2D and body.name != "Player" or body is TileMap:
+		on_floor = true
 
 
 func _on_DamageBlinkTimer_timeout():

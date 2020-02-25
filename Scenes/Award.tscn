@@ -6,10 +6,10 @@
 [ext_resource path="res://Scripts/Award.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/BAA.png" type="Texture" id=5]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=9]
 radius = 16.0
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=10]
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
 spread = 180.0
@@ -22,7 +22,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 4.0
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=11]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -38,7 +38,7 @@ collision_mask = 5
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 9 )
 
 [node name="CoinSprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
@@ -49,7 +49,7 @@ amount = 15
 lifetime = 1.75
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 2 )
+process_material = SubResource( 10 )
 texture = ExtResource( 2 )
 
 [node name="DespawnTimer" type="Timer" parent="."]
@@ -63,7 +63,7 @@ autostart = true
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = 5.361
+volume_db = 20.0
 
 [node name="Award Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -74,7 +74,7 @@ margin_left = -62.5
 margin_top = -44.0
 margin_right = 62.5
 margin_bottom = -20.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 11 )
 text = "Future Award"
 align = 1
 valign = 1

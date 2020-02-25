@@ -25,6 +25,8 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 69
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -271,6 +273,7 @@ __meta__ = {
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 scale = Vector2( 5, 5 )
 motion_scale = Vector2( 0.1, 0 )
 motion_mirroring = Vector2( 960, 0 )
@@ -285,6 +288,7 @@ region_enabled = true
 region_rect = Rect2( 0, 26, 128, 28 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 scale = Vector2( 5, 5 )
 motion_scale = Vector2( 0.2, 0 )
 motion_mirroring = Vector2( 960, 0 )
@@ -332,20 +336,21 @@ pitch_scale = 1.2
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( -29, 31 )
 enabled = true
-cast_to = Vector2( 0, 5 )
+cast_to = Vector2( 0, 10 )
 collision_mask = 7
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2( 29, 31 )
 enabled = true
-cast_to = Vector2( 0, 5 )
+cast_to = Vector2( 0, 10 )
 collision_mask = 7
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]
 position = Vector2( 0, 31 )
 enabled = true
-cast_to = Vector2( 0, 5 )
-collision_mask = 7
+cast_to = Vector2( 0, 10 )
+collision_mask = 1048575
+collide_with_areas = true
 [connection signal="button_up" from="CanvasLayer/QuitButton" to="CanvasLayer/QuitButton" method="_on_QuitButton_button_up"]
 [connection signal="timeout" from="CanvasLayer/Timer/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="button_up" from="CanvasLayer/Respawn Button" to="." method="_on_Respawn_Button_button_up"]

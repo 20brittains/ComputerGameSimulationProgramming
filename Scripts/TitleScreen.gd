@@ -9,4 +9,4 @@ func _on_Quit_Button_button_up():
 	get_tree().quit()
 
 func _on_HelpButton_button_up():
-	pass # Replace with function body.
+	$Panel.show()
