@@ -184,7 +184,6 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 125, 0 )
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 margin_right = 1840.0
 margin_bottom = 1000.0
 script = ExtResource( 3 )
@@ -200,6 +199,7 @@ custom_fonts/font = SubResource( 5 )
 text = "W or Spacebar - Jump
 A - Move Left
 D - Move Right
+ESC - Quit Menu (Press Again to Close)
 
 Your Goal is to Collect all Four of the 
 Business Achievement Awards."
