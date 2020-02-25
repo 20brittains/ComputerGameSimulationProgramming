@@ -234,12 +234,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Car" parent="." instance=ExtResource( 4 )]
-position = Vector2( 568, -892 )
-
-[node name="Car3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -120, -445 )
-
 [node name="Car4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 568, -445 )
 
@@ -249,14 +243,8 @@ position = Vector2( -120, 452 )
 [node name="Car5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 568, 452 )
 
-[node name="Car8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 288, 899 )
-
 [node name="Car7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 976, 899 )
-
-[node name="Car10" parent="." instance=ExtResource( 4 )]
-position = Vector2( -856, 899 )
 
 [node name="Car9" parent="." instance=ExtResource( 4 )]
 position = Vector2( -168, 899 )
@@ -506,6 +494,42 @@ position = Vector2( 168, -8 )
 
 [node name="Coin6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 224, -8 )
+
+[node name="Coin76" parent="." instance=ExtResource( 2 )]
+position = Vector2( -160, -56 )
+
+[node name="Coin75" parent="." instance=ExtResource( 2 )]
+position = Vector2( -120, -56 )
+
+[node name="Coin74" parent="." instance=ExtResource( 2 )]
+position = Vector2( -80, -56 )
+
+[node name="Coin73" parent="." instance=ExtResource( 2 )]
+position = Vector2( 112, -56 )
+
+[node name="Coin72" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, -56 )
+
+[node name="Coin71" parent="." instance=ExtResource( 2 )]
+position = Vector2( 224, -56 )
+
+[node name="Coin82" parent="." instance=ExtResource( 2 )]
+position = Vector2( -160, -256 )
+
+[node name="Coin81" parent="." instance=ExtResource( 2 )]
+position = Vector2( -120, -256 )
+
+[node name="Coin80" parent="." instance=ExtResource( 2 )]
+position = Vector2( -80, -256 )
+
+[node name="Coin79" parent="." instance=ExtResource( 2 )]
+position = Vector2( 112, -256 )
+
+[node name="Coin78" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, -256 )
+
+[node name="Coin77" parent="." instance=ExtResource( 2 )]
+position = Vector2( 224, -256 )
 
 [node name="Coin7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 448, 88 )

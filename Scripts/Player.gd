@@ -26,7 +26,6 @@ var on_floor
 #processes movement on every frame
 # warning-ignore:unused_argument
 func _process(delta):
-		
 	var speed = default_speed * speed_ratio
 	var max_speed = default_max_speed * speed_ratio
 	var jump_power = default_jump_power * jump_ratio

@@ -13,6 +13,7 @@ var game_initialized = false
 
 
 func initialize_game():
+	
 	get_node("TitleScreen").queue_free()
 	game_initialized = true
 	

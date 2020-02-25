@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/spike.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Car.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/icon.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/platform.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Award.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/MovingPlatform.gd" type="Script" id=7]
 
@@ -237,7 +237,7 @@ shape = SubResource( 10 )
 one_way_collision = true
 
 [node name="PlatformSprite" type="Sprite" parent="MovingPlatformRoot2/MovingPlatform"]
-scale = Vector2( 2, 0.5 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="Path2D" type="Path2D" parent="MovingPlatformRoot2"]
@@ -263,7 +263,7 @@ shape = SubResource( 10 )
 one_way_collision = true
 
 [node name="PlatformSprite" type="Sprite" parent="MovingPlatformRoot3/MovingPlatform"]
-scale = Vector2( 2, 0.5 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="Path2D" type="Path2D" parent="MovingPlatformRoot3"]
@@ -330,6 +330,63 @@ position = Vector2( 824, -71 )
 
 [node name="Coin45" parent="." instance=ExtResource( 2 )]
 position = Vector2( 872, -71 )
+
+[node name="Coin115" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1824, -136 )
+
+[node name="Coin120" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2208, -192 )
+
+[node name="Coin121" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2464, -256 )
+
+[node name="Coin122" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2720, -448 )
+
+[node name="Coin123" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2464, -368 )
+
+[node name="Coin124" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2208, -304 )
+
+[node name="Coin125" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2720, -568 )
+
+[node name="Coin126" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -784 )
+
+[node name="Coin127" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -672 )
+
+[node name="Coin128" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -584 )
+
+[node name="Coin129" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -405 )
+
+[node name="Coin130" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -317 )
+
+[node name="Coin131" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -205 )
+
+[node name="Coin132" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -109 )
+
+[node name="Coin133" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2912, -493 )
+
+[node name="Coin116" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1632, -136 )
+
+[node name="Coin117" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1520, -184 )
+
+[node name="Coin118" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1376, -144 )
+
+[node name="Coin119" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1184, -144 )
 
 [node name="Coin20" parent="." instance=ExtResource( 2 )]
 position = Vector2( 58.448, -24.442 )
@@ -640,7 +697,7 @@ shape = SubResource( 14 )
 one_way_collision = true
 
 [node name="PlatformSprite" type="Sprite" parent="MovingPlatformRoot/MovingPlatform"]
-scale = Vector2( 2, 0.5 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="Path2D" type="Path2D" parent="MovingPlatformRoot"]
@@ -666,7 +723,7 @@ shape = SubResource( 14 )
 one_way_collision = true
 
 [node name="PlatformSprite" type="Sprite" parent="MovingPlatformRoot4/MovingPlatform"]
-scale = Vector2( 2, 0.5 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="Path2D" type="Path2D" parent="MovingPlatformRoot4"]
@@ -692,7 +749,7 @@ shape = SubResource( 14 )
 one_way_collision = true
 
 [node name="PlatformSprite" type="Sprite" parent="MovingPlatformRoot5/MovingPlatform"]
-scale = Vector2( 2, 0.5 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="Path2D" type="Path2D" parent="MovingPlatformRoot5"]
